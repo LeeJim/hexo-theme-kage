@@ -5,6 +5,10 @@ module.exports = class extends Component {
     render() {
         const { site, page, helper } = this.props;
 
-        return <Categories.Cacheable site={site} page={page} helper={helper} />;
+        return (
+            <div className="columns is-center categories">
+                <Categories.Cacheable site={site} page={page} helper={helper} />
+            </div>
+        );
     }
 };

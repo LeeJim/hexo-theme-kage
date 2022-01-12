@@ -1,53 +1,73 @@
 /* ---------------------------------
- *           Top Navigation
+ *       Top Navigation
  * --------------------------------- */
 $navbar-item-padding-v ?= 1.25rem
 $navbar-item-padding-h ?= .75rem
 $navbar-item-margin-v ?= 0
 $navbar-item-margin-h ?= 0
 
+$text-color = #4b587c
+
 .navbar-main
-    box-shadow: $shadow
+  height 80px
+  align-items center
+  box-shadow 0 0 1px 1px rgba(33, 41, 63, .1)
 
-    .navbar-menu, .navbar-start, .navbar-end
-        align-items: stretch
-        display: flex
-        padding: 0
-        flex-shrink: 0
+  .navbar-menu, .navbar-start, .navbar-end
+    align-items: stretch
+    display: flex
+    padding: 0
+    flex-shrink: 0
 
+  .navbar-menu
+    flex-grow: 1
+    flex-shrink: 0
+    overflow-x: auto
+    margin-left: 100px
+
+  .navbar-start
+    justify-content: flex-start
+    margin-right: auto
+
+  .navbar-end
+    justify-content: flex-end
+    margin-left: auto
+
+  .navbar-item
+    position: relative
+    display: flex
+    align-items: center
+    color: $text-color
+    text-decoration: none
+    height: 40px
+    margin-right: 20px
+
+    &.is-active
+      color: #3273dc
+
+      &:after
+        content ''
+        display: block
+        position absolute
+        left: 50%
+        bottom: 0
+        width: 30%
+        height: 4px
+        background #3273dc
+        border-radius: 2px;
+        transform: translateX(-50%)
+
+  +until($navbar-breakpoint)
     .navbar-menu
-        flex-grow: 1
-        flex-shrink: 0
-        overflow-x: auto
+      justify-content: center
+      box-shadow: none
 
     .navbar-start
-        justify-content: flex-start
-        margin-right: auto
+      margin-right: 0
 
     .navbar-end
-        justify-content: flex-end
-        margin-left: auto
-
-    .navbar-item
-        display: flex
-        align-items: center
-        padding: $navbar-item-padding-v $navbar-item-padding-h
-        margin: $navbar-item-margin-v $navbar-item-margin-h
-
-        &.is-active
-            background-color: transparent
-
-    +until($navbar-breakpoint)
-        .navbar-menu
-            justify-content: center
-            box-shadow: none
-
-        .navbar-start
-            margin-right: 0
-
-        .navbar-end
-            margin-left: 0
+      margin-left: 0
 
 .navbar-logo
-    img
-        max-height: $logo-height
+  img
+    max-height: $logo-height

@@ -1,4 +1,4 @@
-const { Component } = require('inferno');
+const { Component, Fragment } = require('inferno');
 const classname = require('hexo-component-inferno/lib/util/classname');
 
 const Head = require('./common/head')
@@ -15,13 +15,13 @@ module.exports = class extends Component {
       <body>
         <div className="wrapper">
           <Navbar config={config} helper={helper} page={page} />
-          <div className="k-body">
-          <div class={classname({
-              column: true,
-              'order-2': true,
-              'column-main': true,
-          })} dangerouslySetInnerHTML={{ __html: body }}></div>
-          </div>
+          <Fragment>
+            <div className="container main-content">
+              <div className="columns is-centered">
+                <div className="column is-full" dangerouslySetInnerHTML={{ __html: body }}></div>
+              </div>
+            </div>
+          </Fragment>
           <Footer />
         </div>
       </body>
