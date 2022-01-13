@@ -16,8 +16,6 @@ function isSameLink(a, b) {
 class Navbar extends Component {
     render() {
         const {
-            logo,
-            logoUrl,
             siteUrl,
             siteTitle,
             menu,
@@ -25,19 +23,12 @@ class Navbar extends Component {
             showToc,
             tocTitle,
             showSearch,
-            searchTitle
+            searchTitle,
+            helper,
         } = this.props;
+        const { url_for } = helper;
 
-        let navbarLogo = '';
-        if (logo) {
-            if (logo.text) {
-                navbarLogo = logo.text;
-            } else {
-                navbarLogo = <img src={logoUrl} alt={siteTitle} height="28" />;
-            }
-        } else {
-            navbarLogo = siteTitle;
-        }
+        let navbarLogo = <img src={url_for('/logo-full.png')} alt={siteTitle} height="28" />;
 
         return <nav class="navbar navbar-main">
             <div class="container">
@@ -108,6 +99,7 @@ module.exports = cacheComponent(Navbar, 'common.navbar', props => {
         siteTitle: title,
         menu,
         links,
+        helper,
         showSearch: search && search.type,
         // searchTitle: __('search.search')
     };

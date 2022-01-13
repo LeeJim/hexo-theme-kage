@@ -8,7 +8,16 @@ const Footer = require('./common/footer')
 module.exports = class extends Component {
   
   render() {
-    const { site, config, page, helper, body } = this.props;
+    const { config, page, helper, body } = this.props;
+    const baiduScript = `
+    var _hmt = _hmt || [];
+          (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?04ee3dbf2b7e6f8d8aafdea1cad24fe2";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+          })();
+    `
     
     return (<html lang="zh-CN">
       <Head config={config} helper={helper} page={page} />
@@ -24,6 +33,7 @@ module.exports = class extends Component {
           </Fragment>
           <Footer />
         </div>
+        <script dangerouslySetInnerHTML={baiduScript} />
       </body>
     </html>)
   }
