@@ -33,7 +33,7 @@ module.exports = class extends Component {
           </Fragment>
           <Footer />
         </div>
-        <script dangerouslySetInnerHTML={baiduScript} />
+        <script dangerouslySetInnerHTML={{ __html: baiduScript }} />
       </body>
     </html>)
   }
