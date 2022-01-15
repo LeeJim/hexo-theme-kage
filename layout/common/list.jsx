@@ -1,4 +1,5 @@
 const { Component } = require('inferno');
+const classname = require('hexo-component-inferno/lib/util/classname');
 
 module.exports = class extends Component {
   render() {
@@ -20,8 +21,13 @@ module.exports = class extends Component {
                   <h2>{item.title}</h2>
                   <p><a href={item.url} target='_blank'><small>{item.url}</small></a></p>
                   <p className="tags">
-                    {item.tags.data.map(item => (<span className="tag is-success is-light">{item.name}</span>))}
-                    {item.categories.data.map(item => (<span className="tag is-primary">{item.name}</span>))}
+                    {item.tags.data.map(item => (<span className={classname({
+                      tag: true,
+                      'is-warning': item.name == '金榜',
+                      'is-primary': item.name == '小而美',
+                      'is-info': item.name == '大厂出品',
+                    })}>{item.name}</span>))}
+                    {item.categories.data.map(item => (<span className="tag is-light is-primary">{item.name}</span>))}
                   </p>
                   <p>{item.desc}</p>
                   <p><small>created by <strong>{item.creator || 'admin'}</strong> at {item.date.startOf('day').fromNow()}</small></p>

@@ -6,7 +6,9 @@ module.exports = class extends Component {
       <footer class="footer">
         <div class="content has-text-centered">
           <p>
-            <strong>Web Hunter</strong> created by <a href="http://africans.cn">leejimqiu</a>. copyright reserverd  ©️leejimqiu 2021 - present
+            <strong>Web Hunter</strong> created by <a href="http://africans.cn">leejimqiu</a>.
+            <br />
+            © 2021－{new Date().getFullYear()} anyhub.cn, all rights reserved LEEJIM
           </p>
         </div>
     </footer>
