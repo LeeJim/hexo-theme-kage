@@ -10,6 +10,8 @@ module.exports.wrapTags = function wrapTags(tags, { url_for }) {
       'is-info': tag.name == '大厂出品',
       'is-link': tag.name == '有趣',
       'is-success': tag.name.indexOf('软件') > -1,
-    },
+      'is-danger': tag.name == '每日必看',
+      'is-dark': tag.name.indexOf('工作') > -1
+     },
   }))
 }
