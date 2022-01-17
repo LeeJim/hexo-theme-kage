@@ -25,9 +25,11 @@ module.exports = class extends Component {
         <div className="wrapper">
           <Navbar config={config} helper={helper} page={page} />
           <Fragment>
-            <div className="container main-content">
-              <div className="columns is-centered">
-                <div className="column is-full" dangerouslySetInnerHTML={{ __html: body }}></div>
+            <div className="main-content">
+              <div className="container">
+                <div className="columns is-centered">
+                  <div className="column is-two-thirds" dangerouslySetInnerHTML={{ __html: body }}></div>
+                </div>
               </div>
             </div>
           </Fragment>

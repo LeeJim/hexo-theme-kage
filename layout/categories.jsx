@@ -1,4 +1,4 @@
-const { Component } = require('inferno');
+const { Component, Fragment } = require('inferno');
 const Categories = require('hexo-component-inferno/lib/view/widget/categories');
 
 module.exports = class extends Component {
@@ -6,9 +6,9 @@ module.exports = class extends Component {
         const { site, page, helper } = this.props;
 
         return (
-            <div className="columns is-center categories">
+            <Fragment>
                 <Categories.Cacheable site={site} page={page} helper={helper} />
-            </div>
+            </Fragment>
         );
     }
 };

@@ -9,11 +9,11 @@ module.exports = class extends Component {
         const tags = wrapTags(site.tags, helper).sort((a, b) => b.length - a.length)
 
         return (
-            <div className="columns is-center categories">
+            <div className="discover box">
                 {/* <Tags.Cacheable site={site} helper={helper} /> */}
-                <div className="box">
+                {/* <div className="box"> */}
                     <h3 className="title is-6">发现</h3>    
-                    <div className="filed d-flex">
+                    <div className="field d-flex">
                         {tags.map(tag => <div className="control">
                             <a className="tags has-addons" href={tag.url}>
                                 <span className={classname(tag.classlist)}>{tag.name}</span>
@@ -21,7 +21,7 @@ module.exports = class extends Component {
                             </a>
                         </div>)}
                     </div>
-                </div>
+                {/* </div> */}
             </div>
         );
     }
